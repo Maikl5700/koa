@@ -4,6 +4,7 @@
 
 ```sh
 ./config/db.config.js
+
 {
     host: "localhost",
     user: "root",
@@ -11,8 +12,15 @@
     multipleStatements: true
 }
 ```
+2. Создать базу,таблицы и заполнить их командой:
+```sh
+    node fill_db
+```
+3. Пользоваться.
 
-#### Отрицательный ответ
+
+## Примеры запросов
+
 
 ```sh
 HTTP status = 4..
