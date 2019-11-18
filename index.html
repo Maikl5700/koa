@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">SEND</button>
+    <!-- jQuery.param() equivalent -->
+    <script src="js/qs.min.js"></script>
+    <script>
+        // const data = [{
+        //     name: 'Evangelion'
+        // },
+        // {
+        //     name: 'Evangelion2'
+        // }]
+        // const data = {
+        //     update: {
+        //         //name: '123',
+        //         //ebalo: 'na null'
+        //         description: 'pidorius'
+
+        //     },
+        //     where: { title: 'Nobis explicabo ad.' }
+        // }
+        const data = {
+            //attrs: ['id'],
+            //where: [{ date: '1980-06-14' }, { id: 7154 }, { title: "Vero cumque laboriosam." }],
+            order: 'author_id',
+            reverseOrder: true,
+            limit: 12,
+            //offset: 1000
+        }
+        // console.log(window.param(data))
+        console.log(window.param(data))
+        document.getElementById('btn').addEventListener('click', _ => {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'http://127.0.0.1:3000/api/authors_books/?' + window.param(data), true);
+            // xhr.open('GET', 'http://127.0.0.1:3000/api/books/' + '?' + window.param(data), true);
+            // xhr.open('PUT', 'http://127.0.0.1:3000/api/books/', true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(JSON.stringify(data));
+
+            xhr.onload = function () {
+                if (xhr.status != 200) {
+                    // обработать ошибку
+                    console.log("OK: ", xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+                } else {
+                    // вывести результат
+                    console.log(JSON.parse(xhr.responseText)); // responseText -- текст ответа.
+                }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
