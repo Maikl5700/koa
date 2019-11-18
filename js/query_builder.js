@@ -16,7 +16,7 @@ class Query {
     }
 }
 
-
+// SIMPLE BUILDER PATTERN
 
 class QueryBuilder {
     constructor(tableName) {
@@ -52,12 +52,7 @@ class QueryBuilder {
 
         query.action = 'UPDATE'
 
-        if(values.where) {
-            const key = Object.keys(values.where)[0]
-            query.where = `WHERE ${key} = '${values.where[key]}'`
-        }
-
-        query.valuesToUpdate = Object.keys(values.update).map(el => `${el} = '${values.update[el]}'`).join()
+        query.valuesToUpdate = Object.keys(values).map(el => `${el} = '${values[el]}'`).join()
 
         return this
     }
@@ -128,7 +123,7 @@ class QueryBuilder {
                 // return `${query.action} ${query.atributes} FROM ${query.tableName} ${query.where} LIMIT 10 OFFSET 1000;`
 
             case 'INSERT INTO':
-                return `${query.action} ${query.tableName} ${query.valuesName} VALUES ${query.values};`
+                return `${query.action} ${query.tableName} ${query.valuesName} VALUES ${query.values} ${query.where};`
 
             case 'UPDATE':
                 return `${query.action} ${query.tableName} SET ${query.valuesToUpdate} ${query.where};`
