@@ -20,13 +20,18 @@
 
 ## Примеры запросов
 
+#### Запись данных
 
+Может принимать объект или массив обектов с полями таблицы
 ```sh
-HTTP status = 4..
-{
-    "code": "BadRequestError",
-    "message": "Validation error"
-}
+// HTTP method = POST
+// body
+[{
+    key1: 'val1'
+ },
+ {
+    key2: 'val2'
+}]
 ```
 
 ## Query запросы
