@@ -1,13 +1,14 @@
-# API
+## Установка
 
-Описание api сервера.
-
-#### Положительный ответ
+1.Указать параметры в конфиге.
 
 ```sh
-HTTP status = 200
+./config/db.config.js
 {
-    "result": ...
+    host: "localhost",
+    user: "root",
+    password: "zx123456",
+    multipleStatements: true
 }
 ```
 
