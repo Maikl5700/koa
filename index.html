@@ -40,13 +40,19 @@
         document.getElementById('btn').addEventListener('click', _ => {
             const xhr = new XMLHttpRequest();
 
-            xhr.open('PUT', 'http://127.0.0.1:3000/api/books/?' /*+ window.param(data)*/, true);
+
+            xhr.open('POST', 'http://127.0.0.1:3000/api/books/', true);
+            xhr.send(JSON.stringify(create));
+
             // xhr.open('GET', 'http://127.0.0.1:3000/api/books/' + '?' + window.param(data), true);
+
             // xhr.open('PUT', 'http://127.0.0.1:3000/api/books/', true);
+            // xhr.send(JSON.stringify(update));
+
+
+
 
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify(update));
-            // xhr.send(JSON.stringify(create));
 
             xhr.onload = function () {
                 if (xhr.status != 200) {

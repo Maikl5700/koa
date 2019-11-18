@@ -3,15 +3,6 @@ const createConn = require('../js/conn')
 
 
 
-// const data = {
-//     update: { 
-//         name: '123',
-//         ebalo: 'na null'
-//     },
-//     where: { name: '123' }
-// }
-
-
 module.exports = tableName => {
     return async (ctx, next) => {
         const conn = await createConn

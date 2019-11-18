@@ -3,7 +3,7 @@ const createConn = require('../js/conn')
 const qs = require('qs')
 const redisConn = require('../js/redis')
 
-//const data = { attrs: 'id' }
+
 
 const TTL = 300 // TIME TO LIVE
 

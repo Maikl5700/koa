@@ -1,12 +1,6 @@
 const QueryBuilder = require('../js/query_builder')
 const createConn = require('../js/conn')
 
-// const data = [{
-//     name: 'Evangelion'
-// },
-// {
-//     name: 'Evangelion2'
-// }]
 
 module.exports = tableName => {
     return async (ctx, next) => {
