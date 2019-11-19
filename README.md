@@ -1,3 +1,6 @@
+## Установка
+1. [Redis for Windows](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip)
+
 ## Настройка
 
 1.Указать параметры в конфиге.
@@ -16,7 +19,10 @@
 ```sh
     node fill_db
 ```
-
+3. Создать базу,таблицы и заполнить их командой:
+```sh
+    node server
+```
 
 ## Примеры запросов
 
