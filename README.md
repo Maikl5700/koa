@@ -1,5 +1,6 @@
 ## Установка
 1. [Redis for Windows](https://github.com/microsoftarchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.zip)
+    В папке запустить redis-server.exe
 2. [MySQL](https://dev.mysql.com/downloads/installer/)
 3. npm install
 
