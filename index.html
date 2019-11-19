@@ -28,9 +28,9 @@
             where: [{ title: 'Nobis explicabo ad.' }, { date: '1972-02-05' }]
         }
         const read = {
-            //attrs: ['id'],
-            //where: [{ date: '1980-06-14' }, { id: 7154 }, { title: "Vero cumque laboriosam." }],
-            order: 'author_id',
+            attrs: ['id', 'title'],
+            where: [{ date: '1980-06-14' }, { id: 7154 }, { title: "Vero cumque laboriosam." }],
+            order: 'id',
             reverseOrder: true,
             limit: 12,
             //offset: 1000
@@ -39,20 +39,27 @@
 
         document.getElementById('btn').addEventListener('click', _ => {
             const xhr = new XMLHttpRequest();
+            
+            // CREATE
+            // xhr.open('POST', 'http://127.0.0.1:3000/api/books/', true);
+            // xhr.setRequestHeader("Content-type", "application/json");
+            // xhr.send(JSON.stringify(create));
+            
 
-
-            xhr.open('POST', 'http://127.0.0.1:3000/api/books/', true);
-            xhr.send(JSON.stringify(create));
-
-            // xhr.open('GET', 'http://127.0.0.1:3000/api/books/' + '?' + window.param(data), true);
-
-            // xhr.open('PUT', 'http://127.0.0.1:3000/api/books/', true);
-            // xhr.send(JSON.stringify(update));
-
-
-
-
+            // READ
+            xhr.open('GET', 'http://127.0.0.1:3000/api/books/' + '?' + window.param(read), true);
             xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send()
+            
+
+            // UPDATE
+            // xhr.open('PUT', 'http://127.0.0.1:3000/api/books/', true);
+            // xhr.setRequestHeader("Content-type", "application/json");
+            // xhr.send(JSON.stringify(update));
+            
+            
+            
+            
 
             xhr.onload = function () {
                 if (xhr.status != 200) {
