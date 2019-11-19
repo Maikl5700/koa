@@ -10,7 +10,7 @@ const controllers = require('../controllers')
 booksRouter.get('/', controllers.read('books'))
 
 // create
-booksRouter.post('/', controllers.create('authors'))
+booksRouter.post('/', controllers.create('books'))
 
 // update
 booksRouter.put('/', controllers.update('books'))
